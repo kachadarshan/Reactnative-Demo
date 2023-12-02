@@ -8,6 +8,7 @@ import {
 
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import LoginScreen from './Component/Screen/LoginScreen';
 import HomeScreen from './Component/Screen/HomeScreen';
 
@@ -19,8 +20,7 @@ const App = () => {
 
 
   return (
-    <View>
-      <NavigationContainer>
+    <NavigationContainer>
         <Stack.Navigator initialRouteName='LoginScreen'>
           <Stack.Screen
             name='LoginScreen'
@@ -34,7 +34,6 @@ const App = () => {
             
         </Stack.Navigator>
       </NavigationContainer>
-    </View>
   )
 }
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "507551488742",
+    "project_id": "sociallogin-ce2be",
+    "storage_bucket": "sociallogin-ce2be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507551488742:android:40a9aa5a83a4f068593927",
+        "android_client_info": {
+          "package_name": "com.demosociallogin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZaxgs19ZDPWsaDdwAtLJ5aKVPAE6MGd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

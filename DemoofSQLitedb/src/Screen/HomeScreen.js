@@ -20,6 +20,11 @@ const HomeScreen = ({ navigation }) => {
 
     //this is for data retrive in sql 
     useEffect(() => {
+       getData();
+    }, [useIsFocused()])
+
+    //this is for get Data
+    const getData =()=>{
         db.transaction((txn) => {
             txn.executeSql(
                 'SELECT * FROM table_user',
@@ -28,13 +33,29 @@ const HomeScreen = ({ navigation }) => {
                     let temp = [];
                     for (let i = 0; i < response.rows.length; i++) {
                         temp.push(response.rows.item(i))
-                        console.log(response.rows.item(i))
+                        // console.log(response.rows.item(i))
                     }
                     setIsdata(temp);
                 }
             )
         })
-    }, [useIsFocused()])
+    }
+
+
+    //this for delete data
+    const DeleteData = (props) => {
+        db.transaction( (txn)=>{
+            txn.executeSql('DELETE FROM table_user WHERE user_id=?',
+            [props],
+            (tx,response) =>{
+                if (response.rowsAffected > 0) {
+                    // useIsFocused();
+                    // navigation.navigate('HomeScreen')
+                    getData();
+                }
+            })
+        })
+    }
 
     return (
         <SafeAreaView>
@@ -51,12 +72,22 @@ const HomeScreen = ({ navigation }) => {
                 <View style={styles.dataContainer}>
                     <FlatList
                         data={isdata}
-                        renderItem={({item, index}) => {
+                        renderItem={({ item, index }) => {
                             return (
                                 <View style={styles.dataCard}>
                                     <Text style={styles.dataTxt}>{item.user_name}</Text>
                                     <Text style={styles.dataTxt}>{item.user_email}</Text>
                                     <Text style={styles.dataTxt}>{item.user_city}</Text>
+
+                                    <View style={styles.updeletebtn}>
+                                        <TouchableOpacity style={styles.addBtn} >
+                                            <Text style={styles.addBtntxt} >Update</Text>
+                                        </TouchableOpacity>
+
+                                        <TouchableOpacity style={[styles.addBtn, styles.deleteBtn]} onPress={() => DeleteData(item.user_id) } >
+                                            <Text style={styles.addBtntxt} >Delete</Text>
+                                        </TouchableOpacity>
+                                    </View>
                                 </View>
                             )
                         }}
@@ -106,7 +137,7 @@ const styles = StyleSheet.create({
         marginTop: 80
     },
     dataCard: {
-        height: 110,
+        height: 160,
         width: "95%",
         borderRadius: 5,
         backgroundColor: "#faf7f0",
@@ -117,6 +148,14 @@ const styles = StyleSheet.create({
     dataTxt: {
         fontSize: 20,
         color: "#000000"
+    },
+    updeletebtn: {
+        flexDirection: "row",
+        height: 50,
+        marginBottom: 5
+    },
+    deleteBtn: {
+        marginLeft: 10
     }
 })
 

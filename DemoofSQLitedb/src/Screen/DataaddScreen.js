@@ -29,7 +29,7 @@ const DataaddScreen = () => {
                     "SELECT name FROM sqlite_master WHERE type='table' AND name='table_user' ",
                     [],
                     (tx, response) => {
-                        console.log('iteam:', response.rows.length);
+                        // console.log('iteam:', response.rows.length);
                         if (response.rows.length == 0) {
                             txn.executeSql("DROP TABLE IF EXISTS table_user", []); //this is for table drop if exists 
                             txn.executeSql('CREATE TABLE IF NOT EXISTS table_user(user_id INTEGER PRIMARY KEY AUTOINCREMENT,user_name VARCHAR,user_email VARCHAR,user_city VARCHAR)'
@@ -49,7 +49,7 @@ const DataaddScreen = () => {
                 'INSERT INTO table_user (user_name,user_email,user_city) VALUES (?,?,?)',
                 [isName,isEmail,isCity],
                 (tx, response) => {
-                    console.log(response.rowsAffected)
+                    // console.log(response.rowsAffected)
                     if (response.rowsAffected>0) {
                         navigation.navigate("HomeScreen")
                     }

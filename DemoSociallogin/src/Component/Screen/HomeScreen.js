@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
     StyleSheet,
     Text,
     View,
-    TouchableOpacity
+    TouchableOpacity,
+    Alert,
+    PermissionsAndroid
 
 } from 'react-native'
 import auth from '@react-native-firebase/auth';
 import { useNavigation } from '@react-navigation/native'
-
+import messaging from '@react-native-firebase/messaging'
 
 const HomeScreen = () => {
     const navigation = useNavigation();
@@ -21,6 +23,26 @@ const HomeScreen = () => {
         }
         navigation.navigate('LoginScreen')
     }
+
+    useEffect(() => {
+        PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS);
+        getDeviceTokenid();
+    }, [])
+
+    //this is for device token id 
+    let getDeviceTokenid = async () => {
+        await messaging().registerDeviceForRemoteMessages();
+        let token = await messaging().getToken();
+        console.log("Token Id:", token)
+    }
+
+    useEffect(() => {
+        const unsubscribe = messaging().onMessage(async remoteMessage => {
+            Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+        });
+
+        return unsubscribe;
+    }, []);
 
     return (
         <View style={styles.contain}>

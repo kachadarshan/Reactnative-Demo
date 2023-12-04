@@ -20,11 +20,11 @@ const HomeScreen = ({ navigation }) => {
 
     //this is for data retrive in sql 
     useEffect(() => {
-       getData();
+        getData();
     }, [useIsFocused()])
 
     //this is for get Data
-    const getData =()=>{
+    const getData = () => {
         db.transaction((txn) => {
             txn.executeSql(
                 'SELECT * FROM table_user',
@@ -44,16 +44,16 @@ const HomeScreen = ({ navigation }) => {
 
     //this for delete data
     const DeleteData = (props) => {
-        db.transaction( (txn)=>{
+        db.transaction((txn) => {
             txn.executeSql('DELETE FROM table_user WHERE user_id=?',
-            [props],
-            (tx,response) =>{
-                if (response.rowsAffected > 0) {
-                    // useIsFocused();
-                    // navigation.navigate('HomeScreen')
-                    getData();
-                }
-            })
+                [props],
+                (tx, response) => {
+                    if (response.rowsAffected > 0) {
+                        // useIsFocused();
+                        // navigation.navigate('HomeScreen')
+                        getData();
+                    }
+                })
         })
     }
 
@@ -80,11 +80,17 @@ const HomeScreen = ({ navigation }) => {
                                     <Text style={styles.dataTxt}>{item.user_city}</Text>
 
                                     <View style={styles.updeletebtn}>
-                                        <TouchableOpacity style={styles.addBtn} >
+                                        <TouchableOpacity style={styles.addBtn} onPress={ () => { navigation.navigate('DataupdateScreen' , {
+                                            user_id:item.user_id,
+                                            user_name:item.user_name,
+                                            user_email:item.user_email,
+                                            user_city:item.user_city,
+                                        })
+                                        }} >
                                             <Text style={styles.addBtntxt} >Update</Text>
                                         </TouchableOpacity>
 
-                                        <TouchableOpacity style={[styles.addBtn, styles.deleteBtn]} onPress={() => DeleteData(item.user_id) } >
+                                        <TouchableOpacity style={[styles.addBtn, styles.deleteBtn]} onPress={() => DeleteData(item.user_id)} >
                                             <Text style={styles.addBtntxt} >Delete</Text>
                                         </TouchableOpacity>
                                     </View>

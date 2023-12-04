@@ -4,9 +4,9 @@ import {
     Text,
     View,
     TextInput,
-    TouchableOpacity
+    TouchableOpacity,
+    SafeAreaView
 } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native'
 import { openDatabase } from 'react-native-sqlite-storage'
 

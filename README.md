@@ -14,3 +14,8 @@
      -/- @react-native-image-picker            ---> for select photo and camera
 
 
+# Social Login
+   --> Here we have done Authentication using FIREBASE Google authentication, and do login and logout And set PUSHNOTIFICATION using third party FCMTester Website.
+     
+
+

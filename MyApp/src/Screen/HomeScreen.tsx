@@ -126,24 +126,28 @@ const HomeScreen = () => {
                 <FlatList
                     data={BankData}
                     renderItem={({ item, index }) => (
-                        <View style={styles.flatcard} >
-                            <View>
-                                <Image
-                                    style={{ width: 100, height: 110, borderRadius: 30 }}
-                                    source={{ uri: item.logo }}
-                                    resizeMethod='auto'
-                                />
-                            </View>
+                        <TouchableOpacity onPress={() => navigation.navigate('DetailScreen')}>
+                            <View style={styles.flatcard} >
+                                <View>
+                                    <Image
+                                        style={{ width: 100, height: 110, borderRadius: 30 }}
+                                        source={{ uri: item.logo }}
+                                        resizeMethod='auto'
+                                    />
+                                </View>
 
-                            <View style={{ marginLeft: 10 }}>
-                                <Text style={{ fontSize: 22, color: "#000000" }}>{item.name}</Text>
-                                <Text style={{ fontSize: 18, color: "#000000" }}>{item.email}</Text>
-                                <Text style={{ fontSize: 16, color: "#000000" }}>{item.phoneno}</Text>
+                                <View style={{ marginLeft: 10 }}>
+                                    <Text style={{ fontSize: 22, color: "#000000" }}>{item.name}</Text>
+                                    <Text style={{ fontSize: 18, color: "#000000" }}>{item.email}</Text>
+                                    <Text style={{ fontSize: 16, color: "#000000" }}>{item.phoneno}</Text>
 
+                                </View>
                             </View>
-                        </View>
+                        </TouchableOpacity>
+
                     )}
                     keyExtractor={item => item.id} />
+                    
             </View>
         </DrawerLayoutAndroid>
 

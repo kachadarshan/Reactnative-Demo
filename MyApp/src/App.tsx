@@ -9,6 +9,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import SplashScreen from './Screen/SplashScreen'
 import HomeScreen from './Screen/HomeScreen'
 import LoginScreen from './Screen/LoginScreen'
+import DetailScreen from './Screen/DetailScreen'
 
 
 const App = () => {
@@ -31,9 +32,12 @@ const App = () => {
         <Stack.Screen
           name='HomeScreen'
           component={HomeScreen}
-          options={{headerShown: false}} />
+          options={{ headerShown: false }} />
 
-
+        <Stack.Screen
+          name='DetailScreen'
+          component={DetailScreen}
+          options={{ headerShown: false }} />
 
 
       </Stack.Navigator>

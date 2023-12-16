@@ -147,7 +147,7 @@ const HomeScreen = () => {
 
                     )}
                     keyExtractor={item => item.id} />
-                    
+
             </View>
         </DrawerLayoutAndroid>
 

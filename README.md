@@ -22,7 +22,11 @@
   --> Here we learn how to import Sqlite And use its
 
   --> Here done all Operation like create,Read,update,delete  
-   
+
+# PaymentGateway App (Razorpay connected demo)
+   --> Here we learn how to implement how to apply payment gateway in react native application 
+
+   --> And how to create razorpay account and how to create razor pay key id.
      
 
 

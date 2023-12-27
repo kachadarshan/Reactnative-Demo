@@ -8,8 +8,10 @@ import {
     Image,
     FlatList
 } from 'react-native'
+
 import { useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage'  //its Async Await function 
+import LottieView from 'lottie-react-native';
 
 
 const HomeScreen = () => {
@@ -131,6 +133,7 @@ const HomeScreen = () => {
                 </View>
 
                 {/* <Text>{details.email}</Text> */}
+
             </View>
         </View>
     );
@@ -189,6 +192,8 @@ const HomeScreen = () => {
 
                     )}
                     keyExtractor={item => item.id} />
+
+                <LottieView style={styles.animConten} source={require('../Asset/Anim/crics.json')} autoPlay loop />
 
             </View>
         </DrawerLayoutAndroid>
@@ -258,6 +263,9 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         flexDirection: 'row'
 
+    },
+    animConten: {
+        flex: 1
     }
 })
 

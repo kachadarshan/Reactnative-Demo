@@ -12,6 +12,7 @@ import {
 import { useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage'  //its Async Await function 
 import LottieView from 'lottie-react-native';
+import Demoref from '../Component/Demoref';
 
 
 const HomeScreen = () => {
@@ -195,6 +196,7 @@ const HomeScreen = () => {
 
                 <LottieView style={styles.animConten} source={require('../Asset/Anim/crics.json')} autoPlay loop />
 
+                <Demoref />
             </View>
         </DrawerLayoutAndroid>
 

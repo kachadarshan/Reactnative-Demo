@@ -13,9 +13,15 @@ import { useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage'  //its Async Await function 
 import LottieView from 'lottie-react-native';
 import Demoref from '../Component/Demoref';
+import { useDeviceOrientation } from '@react-native-community/hooks'
 
 
 const HomeScreen = () => {
+
+
+    const orientation = useDeviceOrientation()
+    console.log('orientation is:', orientation)
+
 
     const BankData = [
         {
@@ -142,6 +148,7 @@ const HomeScreen = () => {
     // const DrawerOpClose = () => {
     //     drawer.current.openDrawer()
     // }
+
 
     return (
         <DrawerLayoutAndroid

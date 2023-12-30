@@ -16,7 +16,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'  //its Asyn
 import LottieView from 'lottie-react-native';
 
 import Demoref from '../Component/Demoref';
-import BankData from '../config/BankDetails'
+import { BankData } from '../config/BankDetails'
 
 const HomeScreen = () => {
 

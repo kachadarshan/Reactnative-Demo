@@ -27,6 +27,14 @@
    --> Here we learn how to implement how to apply payment gateway in react native application 
 
    --> And how to create razorpay account and how to create razor pay key id.
-     
 
+# Reduxtoolkit AppDemo(State Management)
+   -->  implement npm pacakges of reduxtoolkit 
 
+   -->Important Topic
+      - Store
+      - CreateSlice  --> all reducers write in this (Application all features)
+                     --> useDispatch(data) ---this methods send data to store
+                     --> useSelector( callbackfun) --- this methods used to retrive data from store
+                     --> Provider --this wrapped all apps to state management
+                     

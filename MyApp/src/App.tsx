@@ -1,11 +1,13 @@
 import React from 'react'
 import {
-  StyleSheet
-  , Text,
+  StyleSheet,
+  Text,
   View
 } from 'react-native'
+
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
+
 import SplashScreen from './Screen/SplashScreen'
 import HomeScreen from './Screen/HomeScreen'
 import LoginScreen from './Screen/LoginScreen'
@@ -46,6 +48,7 @@ const App = () => {
 }
 
 const styles = StyleSheet.create({
+
 
 })
 

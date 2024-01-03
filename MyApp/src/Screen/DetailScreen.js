@@ -7,6 +7,7 @@ import {
     SafeAreaView,
     ScrollView
 } from 'react-native'
+import WebView from 'react-native-webview';
 
 const DetailScreen = (props) => {
 
@@ -28,6 +29,11 @@ const DetailScreen = (props) => {
                 }>
                 <Text>Pull down to see RefreshControl indicator</Text>
             </ScrollView>
+            <WebView
+                style={styles.webviewContainer}
+                source={{ uri: 'https://reactnative.dev/' }}
+            />
+
         </SafeAreaView>
     );
 };
@@ -37,11 +43,14 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     scrollView: {
-        flex: 1,
+      flex:1,
         backgroundColor: 'pink',
         alignItems: 'center',
         justifyContent: 'center',
     },
+    webviewContainer: {
+        flex: 1
+    }
 });
 
 //   export default App;

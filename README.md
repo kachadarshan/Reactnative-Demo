@@ -21,7 +21,8 @@
 # Sqlite App
   --> Here we learn how to import Sqlite And use its
 
-  --> Here done all Operation like create,Read,update,delete  
+  --> Here done all Operation like create,Read,update,delete 
+  --> And Created login form of this and store small data of applications in it.
 
 # PaymentGateway App (Razorpay connected demo)
    --> Here we learn how to implement how to apply payment gateway in react native application 
